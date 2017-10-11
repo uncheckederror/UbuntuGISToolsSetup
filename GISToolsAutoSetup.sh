@@ -17,6 +17,21 @@ echo "" && echo "Ready to install QGIS and GDAL." && echo ""
 sudo apt-get install qgis python-qgis qgis-plugin-grass gdal-bin
 echo "" && echo "Cleaning up the system." && echo ""
 
+#Install Ananconda for using Juypter notebooks and GDAL in Python.
+cd ~
+wget https://repo.continuum.io/archive/Anaconda2-5.0.0.1-Linux-x86_64.sh
+bash Anaconda2-5.0.0.1-Linux-x86_64.sh -b -p ~/anaconda
+rm Anaconda2-5.0.0.1-Linux-x86_64.sh
+echo 'export PATH="~/anaconda/bin:$PATH"' >> ~/.bashrc
+source .bashrc
+conda update conda
+conda update conda
+conda install gdal
+
 #Cleanup the system by checking for updates, upgrading everything, and removing the old packages.
 sudo apt update && sudo apt upgrade && sudo apt autoremove
 echo "" && echo "QGIS and GDAL are now installed. Happy mapping!" && echo ""
+
+
+
+
